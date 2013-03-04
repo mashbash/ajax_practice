@@ -6,8 +6,8 @@ $(document).ready(function(){
     $(".signup").fadeIn("slow");
   });
 
-	$(".profilegroup-form").submit(function(e){
-		console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+  $(".profilegroup-form").submit(function(e){
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
 		e.preventDefault();
 		$.ajax({
       type: this.method, //can be get or post
