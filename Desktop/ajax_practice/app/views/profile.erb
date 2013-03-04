@@ -1,9 +1,9 @@
-
 <div class="container">
   <form action="/logout" method="get">
   <input type="submit" value="logout">
   </form>
   <h1>Welcome, <%= @user.name %> </h1>
+
 
   <% @profile = @user.profile %>
   <% if @profile.group.nil? %>
@@ -11,6 +11,12 @@
     <input name="profile_group" type="text" placeholder="your profile group">
     <input class="profile-group" type="submit" value="Submit!">
     <input type="hidden" name="user_id" value="<%=@user.id%>">
+
+  <% if @user.profile.type.nil? %>
+  <form action="/type" method="post">
+    <input name="profile_type" type="text" placeholder="your profile type">
+    <input class="profile-type" type="submit" value="Submit!">
+
   </form>  
   <% end %> 
 
@@ -23,3 +29,4 @@
   <div>Profile: <%= @user.profile.group %></div>
   <% end %> 
 </div>
+
