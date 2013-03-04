@@ -1,0 +1,20 @@
+
+<div class="container">
+  <form action="/logout" method="get">
+  <input type="submit" value="logout">
+  </form>
+  <h1>Welcome, <%= @user.name %> </h1>
+
+  <% if @user.profile.type.nil? %>
+  <form action="/type" method="post">
+    <input name="profile_type" type="text" placeholder="your profile type">
+    <input type="submit" value="Submit!">
+  </form>  
+  <% end %> 
+
+  <div>Your profile:</div>
+  <div>User ID No.: <%= @user.id %></div>
+  <div>Profile ID No.: <%= @user.profile.id %></div>
+  <div>Name: <%= @user.name %></div>
+  <div>email: <%= @user.email %></div>
+</div>

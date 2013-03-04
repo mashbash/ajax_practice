@@ -1,0 +1,28 @@
+.container {
+  margin: 20px auto;
+  width: 600px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+  float: left;
+}
+
+th {
+  text-align: left;
+}
+
+.login, .signup {
+  width: 40%;
+}
+
+.button-signup {
+  border: 1px solid grey;
+  background: lightgrey;
+  width: 70px;
+}
+
+.signup {
+  display: none;
+}
+
+
+
