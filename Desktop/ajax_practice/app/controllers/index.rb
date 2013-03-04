@@ -9,7 +9,8 @@ post '/signup' do
   @user = User.new params
   if @user.save
     session[:user_id] = @user.id 
-    @profile = Profile.create(:user_id => @user.id)
+    @profile = Profile.new(:user_id => @user.id)
+    @profile.save
     redirect("/users/#{@user.id}")
   else 
     erb :index
@@ -36,8 +37,14 @@ get '/users/:id' do
   erb :profile
 end 
 
-post '/type' do
-  
+post '/group' do
+  content_type 'application/json'
+  p params
+  p ">>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+  @profile = Profile.find_by_id(params[:user_id])
+  @profilegroup = params[:profile_group]
+  @profile.update_attributes(:group => @profilegroup )
+  {:profile_group => @profile.group }.to_json
 end  
 
 

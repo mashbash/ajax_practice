@@ -5,10 +5,12 @@
   </form>
   <h1>Welcome, <%= @user.name %> </h1>
 
-  <% if @user.profile.type.nil? %>
-  <form action="/type" method="post">
-    <input name="profile_type" type="text" placeholder="your profile type">
-    <input type="submit" value="Submit!">
+  <% @profile = @user.profile %>
+  <% if @profile.group.nil? %>
+  <form class="profilegroup-form" action="/group" method="post">
+    <input name="profile_group" type="text" placeholder="your profile group">
+    <input class="profile-group" type="submit" value="Submit!">
+    <input type="hidden" name="user_id" value="<%=@user.id%>">
   </form>  
   <% end %> 
 
@@ -16,5 +18,8 @@
   <div>User ID No.: <%= @user.id %></div>
   <div>Profile ID No.: <%= @user.profile.id %></div>
   <div>Name: <%= @user.name %></div>
-  <div>email: <%= @user.email %></div>
+  <div class="email">email: <%= @user.email %></div>
+  <% if @user.profile.group %>
+  <div>Profile: <%= @user.profile.group %></div>
+  <% end %> 
 </div>
