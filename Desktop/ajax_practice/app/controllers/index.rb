@@ -47,4 +47,8 @@ post '/group' do
   {:profile_group => @profile.group }.to_json
 end  
 
+//syntax of passing a partial to ajax
+//erb :_add_tweet,
+//    :layout => false,
+//    :locals => {:username => @username, :tweet => @tweet, :error => @error}
 
